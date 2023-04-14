@@ -1,7 +1,7 @@
 {% load humanize %}
 
 {% for item in pos %}
-    <a href="{% url 'pos' pos_num=item.pos_en %}">
-        🗃 {{ item.pos_en }} <mark>{{ item.pos_count }}</mark>
+    <a href="{% url 'pos' pos_num=item.pos_ru %}">
+        🗃 {{ item.pos_ru }} <mark>{{ item.pos_count }}</mark>
     </a>
 {% endfor %}

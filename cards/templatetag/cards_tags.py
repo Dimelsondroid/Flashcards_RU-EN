@@ -22,7 +22,7 @@ def boxes_as_links():
 def pos_as_links():
     pos = []
     for item_ru, item_en in Card.WORD_TYPE_CHOICES.values():
-        pos_count = Card.objects.filter(word_type_en=item_en).count()
+        pos_count = Card.objects.filter(word_type_ru=item_ru).count()
         pos.append({
             'pos_ru': item_ru,
             'pos_en': item_en,

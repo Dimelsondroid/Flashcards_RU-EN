@@ -52,7 +52,7 @@ class POSView(CardListView):
     form_class = POSCardCheckForm
 
     def get_queryset(self):
-        return Card.objects.filter(word_type_en=self.kwargs['pos_num'])
+        return Card.objects.filter(word_type_ru=self.kwargs['pos_num'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
