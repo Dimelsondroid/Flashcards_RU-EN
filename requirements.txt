@@ -1,0 +1,11 @@
+pip
+attrs
+wheel
+cryptography
+Django
+asgiref
+sqlparse
+colorama
+PyYAML
+requests
+setuptools

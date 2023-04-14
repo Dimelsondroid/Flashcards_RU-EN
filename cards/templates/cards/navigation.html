@@ -1,0 +1,8 @@
+{% load cards_tags %}
+
+<nav>
+    <a href="{% url 'card-list' %}">🗂 Все карточки</a>
+    <a href="{% url 'card-create' %}"> ✨ Создать новую</a>
+    <br>
+    {% boxes_as_links %}
+</nav>
