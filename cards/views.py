@@ -1,6 +1,5 @@
 import random
 
-import pymorphy2
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
@@ -8,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect
 
 import cards.models
 from .models import Card
-from .forms import CardCheckForm
+from .forms import CardCheckForm, POSCardCheckForm
 
 
 class CardListView(ListView):
@@ -20,11 +19,6 @@ class CardCreateView(CreateView):
     model = Card
     fields = ['question', 'answer', 'box']
     success_url = reverse_lazy('card-create')
-
-    # def post(self, request, *args, **kwargs):
-    #     if 'set-word-pos' in request.POST:
-    #         Card.set_word_pos(self.card.id)
-
 
 
 class CardUpdateView(CardCreateView, UpdateView):
@@ -41,6 +35,28 @@ class BoxView(CardListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['box_number'] = self.kwargs['box_num']
+        if self.object_list:
+            context['check_card'] = random.choice(self.object_list)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            card = get_object_or_404(Card, id=form.cleaned_data['card_id'])
+            card.move(form.cleaned_data['solved'])
+        return redirect(request.META.get('HTTP_REFERER'))
+
+
+class POSView(CardListView):
+    template_name = 'cards/pos.html'
+    form_class = POSCardCheckForm
+
+    def get_queryset(self):
+        return Card.objects.filter(word_type_en=self.kwargs['pos_num'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pos_number'] = self.kwargs['pos_num']
         if self.object_list:
             context['check_card'] = random.choice(self.object_list)
         return context

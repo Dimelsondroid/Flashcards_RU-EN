@@ -16,12 +16,12 @@ TYPE_CHOICES = (
 
 class Card(models.Model):
     WORD_TYPE_CHOICES = {
-        'NOUN': ['имя существительное', 'noun'],
-        'ADJF': ['имя прилагательное', 'adjective'],
+        'NOUN': ['существительное', 'noun'],
+        'ADJF': ['прилагательное', 'adjective'],
         'INFN': ['глагол', 'infinitive'],
         'NUMR': ['числительное', 'numerical'],
         'ADVB': ['наречие', 'adverb'],
-        'NPRO': ['местоимение-существительное', 'pronoun'],
+        'NPRO': ['местоимение', 'pronoun'],
         'PREP': ['предлог', 'preposition'],
         'CONJ': ['союз', 'conjunction'],
     }

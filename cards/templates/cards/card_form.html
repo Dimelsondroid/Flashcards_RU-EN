@@ -9,7 +9,7 @@
     <form method="post">
         {% csrf_token %} <!-- security measure to prevent cross-site request forgery -->
         {{ form.as_p }} <!-- display the form fields wrapped in paragraphs -->
-        <input type="submit" name="set-word-pos" value="Сохранить">
+        <input type="submit" value="Сохранить">
     </form>
     <a href="{% url 'card-list' %}" >
         Отмена
