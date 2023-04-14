@@ -1,10 +1,12 @@
 import random
 
+import pymorphy2
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, redirect
 
+import cards.models
 from .models import Card
 from .forms import CardCheckForm
 
@@ -18,6 +20,11 @@ class CardCreateView(CreateView):
     model = Card
     fields = ['question', 'answer', 'box']
     success_url = reverse_lazy('card-create')
+
+    # def post(self, request, *args, **kwargs):
+    #     if 'set-word-pos' in request.POST:
+    #         Card.set_word_pos(self.card.id)
+
 
 
 class CardUpdateView(CardCreateView, UpdateView):

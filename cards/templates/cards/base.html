@@ -22,8 +22,8 @@
 
     article {
         background-color: var(--marked);
-        border: 1px solid var(--border);
-        border-radius: 5px;
+        border: 5px solid var(--border);
+        border-radius: 1px;
         padding: 1em;
         margin: 1em 0;
     }
@@ -33,12 +33,27 @@
     }
 
     h2, h4 {
-        margin-top: 0;
+        text-align: center;
+        margin-top: 0 auto;
     }
 
     hr {
         background: var(--accent);
         border-color: var(--accent);
+    }
+
+    table {
+        border: solid;
+        height: 20px;
+    }
+
+    td {
+        border: unset;
+        height: 20px;
+    }
+
+    td1 {
+        font-style: italic;
     }
 
     button,

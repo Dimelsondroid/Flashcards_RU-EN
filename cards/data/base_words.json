@@ -3,6 +3,24 @@
     "question": "собака",
     "answer": "dog",
     "box": "1",
-    "type": "noun"
+    "word_type": {
+      "NOUN": ["имя существительное", "noun"]
+    }
+  },
+  {
+    "question": "кошка",
+    "answer": "cat",
+    "box": "1",
+    "word_type": {
+      "NOUN": ["имя существительное", "noun"]
+    }
+  },
+  {
+    "question": "прыгать",
+    "answer": "jump",
+    "box": "1",
+    "word_type": {
+      "INFN": ["глагол", "infinitive"]
+    }
   }
 ]

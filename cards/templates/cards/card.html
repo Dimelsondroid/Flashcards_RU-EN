@@ -1,13 +1,25 @@
 <article>
-   <h4>{{ card.question }}</h4>
+   <table>
+      <td><h4>{{ card.question }} </h4></td>
+      <td> - </td>
+      <td style="font-style: italic">{{ card.word_type_ru }}</td>
+   </table>
    {% if not check_card %}
-      <p>{{ card.answer }}</p>
+      <table>
+            <td>{{ card.answer }}</td>
+            <td> - </td>
+            <td style="font-style: italic">{{ card.word_type_en }}</td>
+      </table>
       <hr>
       <a href="{% url 'card-update' card.id %}" role="button"> ✏️ Редактировать</a>
    {% else %}
       <details>
          <summary>Показать ответ</summary>
-         <p>{{ card.answer }}</p>
+         <table>
+            <td>{{ card.answer }}</td>
+            <td> - </td>
+            <td style="font-style: italic">{{ card.word_type_en }}</td>
+         </table>
       </details>
       <hr>
      {% include "cards/card_check_form.html" with solved=True %}
